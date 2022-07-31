@@ -10,4 +10,4 @@ This project is using https://www.weatherapi.com/ to display hourly weather fore
 
 #### Running the app
 
-- write $ php -S localhost:8000 in terminal to run the app
+- run php -S localhost:8000 in terminal to run the app
