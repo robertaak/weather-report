@@ -1,4 +1,4 @@
-### Weather report
+# Weather report
 
 This project uses https://www.weatherapi.com/ to display hourly weather forecast in Riga on given day.
 For each hour in a day user can see temp. in C, weather condition icon and date/ time.
