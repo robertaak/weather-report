@@ -1,4 +1,6 @@
 <?php
+
+use App\Repositories\HourlyReportsRepository;
 use App\Repositories\WeatherApiHourlyReportsRepository;
 use Dotenv\Dotenv;
 
@@ -38,7 +40,7 @@ switch ($routeInfo[0]) {
         $twig = new \Twig\Environment($loader);
 
         $container = new \DI\Container();
-        $container->set(\App\Repositories\HourlyReportsRepository::class, DI\create(WeatherApiHourlyReportsRepository::class));
+        $container->set(HourlyReportsRepository::class, DI\create(WeatherApiHourlyReportsRepository::class));
 
         /** @var \App\View $view */
         $view = ($container->get($controller))->$method();

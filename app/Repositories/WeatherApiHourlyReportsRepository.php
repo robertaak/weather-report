@@ -20,16 +20,12 @@ class WeatherApiHourlyReportsRepository implements HourlyReportsRepository
 
     public function getHourlyReports(): HourlyReportsCollection
     {
-        $url = 'forecast.json?key=' . $_ENV['API_KEY'] . '&q=Riga&days=1&aqi=no&alerts=no';
+        $url = 'forecast.json?key=' . $_ENV['API_KEY'] . "&q=Riga&days=1&aqi=no&alerts=no";
+        $response = (json_decode($this->httpClient->get($url)->getBody()));
 
-        $response = $this->httpClient->get($url);
-
-        $response = (json_decode($response->getBody()));
-        //echo'<pre>';
-        //var_dump($response->forecast->forecastday[0]->hour->time); die;
+        $date = $response->forecast->forecastday[0]->date;
 
         $hourlyReports = [];
-
         foreach ($response->forecast->forecastday[0]->hour as $hourlyReport)
         {
             $hourlyReports[] = new HourlyReport(

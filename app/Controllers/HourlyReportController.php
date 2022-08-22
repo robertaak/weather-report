@@ -15,6 +15,9 @@ class HourlyReportController
 
     public function show(): View
     {
-        return new View('hourly-reports-index.twig', ['hourlyReports' => $this->service->execute()->getAll()]);
+        return new View('index.twig', [
+            'hourlyReports' => $this->service->execute()->getAll(),
+            'response' => $this->service->execute()->getAll()
+        ]);
     }
 }
